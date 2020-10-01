@@ -145,7 +145,7 @@ class BCA{
 			unlink("cookies_".$this->_userId.".txt");
 			goto Awal;
 		}else
-		if(strpos($result, "TRANSAKSI GAGAL"))
+		if(strpos($result, "TRANSAKSI KAMU GAGAL DILAKUKAN TERAKHIR"))
 		{
 			return array("status" => false, "data" => array(), "message" => "Transaksi Gagal");
 		}else
@@ -168,7 +168,7 @@ class BCA{
 			$res = $this->getStr('<td bgcolor="#e0e0e0" colspan="2"><b>KETERANGAN</td>','<!--<tr>',$res);
 			$res = @str_replace($arr3,"",@str_replace($arr, "", $res));
 			$c = @explode("\n", $res);
-			$array = array("SALDO AWAL","SALDO AKHIR","MUTASI KREDIT","MUTASI DEBET");
+			$array = array("SALDO AWAL","SALDO TERAKHIR","MUTASI KREDIT","MUTASI DEBET");
 			$results['status'] = true;
 			$result = array();
 			for($i=0;$i<count($array);$i++){
@@ -221,7 +221,7 @@ echo color('blue', "[+]")." =======================\n";
 echo color('blue', "[+]")." 1. Cek Saldo\n";
 echo color('blue', "[+]")." 2. Cek Mutasi\n";
 echo color('blue', "[+]")." =======================\n";
-echo color('blue', "[+]")." Silahkan pilih: ";
+echo color('blue', "[+]")." Silahkan pilih yang kamu mau: ";
 $tools = trim(fgets(STDIN));
 
 if ($tools == 1) {
@@ -247,5 +247,5 @@ if ($tools == 1) {
 	echo "\n";
 	print_r($b);
 } else {
-	die(color('red', "[+]")." Yang benerlah goblok!");
+	die(color('red', "[+]")." Tolong yang benerlah!");
 }
